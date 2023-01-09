@@ -10,8 +10,8 @@
 </head>
 <body>
     <header>
-<section a href="highscores.html" id="highscore-btn" class="btn">
-    View Highscores<i class="fas fa-crown"></i>
+<section><button id="highscore-btn" class="btn">
+    View Highscores<i class="fas fa-crown"></i></button>
 </section>
 <section id="timer">
 
@@ -23,7 +23,7 @@
  
     </header>
 <main>
-    <div id="hideQs">
+    <div id="home">
     <h1 class="title">Coding Quiz Challenge!</h1>
     <div class="body">
 <p>Try to answer the questions correctly to get a 
@@ -34,13 +34,28 @@
 </div>
 </div>
 <div class="questions">
-<h2>Commonly used NOT include</h2>
+<h2 id="question">Commonly used NOT include</h2>
 <div class="answers">
-<button>A1</button>
-<button>A2</button>
-<button>A3</button>
-<button>A4</button>
+<button id="a1">A1</button>
+<button id="a2">A2</button>
+<button id="a3">A3</button>
+<button id="a4">A4</button>
 </div>
+<p id="feedback"></p>
+</div>
+<div id="done">
+<h2>Quiz Complete</h2>
+<p id="finalScore">Your Score:</p>
+<p>Enter Your Initials</p>
+<input type="text" id="initials">
+<button id="submit">Submit</button>
+</div>
+<div id="scoreboard">
+ <h2>Highscores</h2>
+ <p id="scores"></p>
+ <button id="restart">Restart</button>
+ <button id="clear">Clear Highscores</button>
+
 </div>
 </main>
 <script src="./Assets/Js/script.js">

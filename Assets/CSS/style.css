@@ -54,4 +54,29 @@ text-align: center;
 .answers{
 display: flex;
 flex-direction: column;
+align-items: center;
+
+}
+
+#done{
+    display: none;
+    text-align: center;
+}
+
+#scoreboard{
+    display: none;
+    text-align: center;
+}
+
+button{
+width:fit-content;
+margin: 10px;
+
+}
+
+#feedback{
+font-size: 2em;
+font-weight: bold;
+margin-top: 20px;
+
 }
