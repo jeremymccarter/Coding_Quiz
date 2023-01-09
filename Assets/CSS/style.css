@@ -1,3 +1,24 @@
+:root {
+    
+    background-color: darkolivegreen;
+
+
+
+
+
+}
+* {
+    box-sizing:border-box ;
+    margin: 0;
+    padding: 0;
+   
+
+
+
+}
+
+
+
 .title {
 
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
@@ -26,6 +47,11 @@ font-style: italic;
 
 .questions{
 display: none;
+text-align: center;
 
+}
 
+.answers{
+display: flex;
+flex-direction: column;
 }
