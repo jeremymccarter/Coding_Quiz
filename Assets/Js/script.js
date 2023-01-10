@@ -72,7 +72,7 @@ function updateTime(){
        timerElement.innerHTML='00:'+sec;
         sec--;
         if (sec < 0) {
-            //clearInterval(timer);
+        
             endQuiz()
         }
     }, 1000);
@@ -88,7 +88,7 @@ questionCounter = 0;
 score = 0;
 sec = 30;
 document.getElementById("feedback").innerHTML=""
-//availableQuestions = [...questionArray]
+
 getNewQuestion()
 };
 
@@ -96,11 +96,7 @@ getNewQuestion = () => {
 if(questionCounter >= MAX_QUESTIONS)
 endQuiz()
 else{
-   // questionCounter++;
-    //progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-    //progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100} %`;
-    
-    //questionIndex = Math.floor(Math.random() * availableQuestions.length)
+  
     currentQuestion = questionArray[questionCounter]
     document.getElementById("question").innerText = currentQuestion.Q
     
@@ -113,7 +109,7 @@ else{
 };
 
 
-//choices.forEach((choice))
+
 
 
 
@@ -132,9 +128,7 @@ questionCounter++
 getNewQuestion()
 };
 
-//challenge.forEach(Q => {
 
-//});
 
 function endQuiz(){
 clearInterval(timer)
@@ -145,10 +139,34 @@ document.getElementById("initials").value=""
 }
 
 function submit(){
+var records = (localStorage.getItem("scores")) || [] 
+
+
+if (records.length >= 1 ){var parsed = JSON.parse(records);
+    console.log(parsed)
+records = parsed
+}
+
+
+
 var initials = document.getElementById("initials").value
-var records = localStorage.getItem("scores")+"<br>"+ initials+" "+score
-localStorage.setItem("scores", records)
-document.getElementById("scores").innerHTML=records
+console.log (records)
+records.push({i:initials, s:score})
+records.forEach(element => {
+console.log(element.i,element.s)
+    
+});
+
+localStorage.setItem("scores", JSON.stringify(records))
+var ul = document.getElementById("scores")
+ul.textContent = "" 
+records.forEach((element)=>{
+
+var li = document.createElement("li")
+li.textContent = element.i + " " + element.s
+ul.appendChild(li)
+
+}) 
 document.getElementById("scoreboard").style.display="block"
 document.querySelector("#done").style.display="none"
 
@@ -165,11 +183,25 @@ function clear(){
     document.getElementById("scores").innerHTML=""
 
 }
+
+var findMax = function (numArr) {
+    var maxNum = numArr[0];
+    for (var i = 1; i < numArr.length; i++) {
+      if (numArr[i] > maxNum) {
+        maxNum = numArr[i];
+      }
+    }
+    return maxNum;
+  }
+  var result = findMax([1, 6, 3]);
+  console.log(result);
+
 function highscores(){
     document.getElementById("scoreboard").style.display="block"
     document.querySelector("#home").style.display="none"
     document.querySelector(".questions").style.display="none"
     document.querySelector("#done").style.display="none"
+   
 clearInterval(timer)
 }
 document.getElementById("a1").addEventListener("click",checkAnswer)
