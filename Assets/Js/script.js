@@ -138,6 +138,17 @@ document.querySelector(".questions").style.display="none"
 document.getElementById("initials").value=""
 }
 
+function validateForm() {
+    var x = document.getElementById("initials").value
+    if (x == "") {
+      alert("Initials must be filled out");
+      return false; 
+    
+    }
+    
+  }
+
+
 function submit(){
 var records = (localStorage.getItem("scores")) || [] 
 
@@ -150,6 +161,9 @@ records = parsed
 
 
 var initials = document.getElementById("initials").value
+
+
+
 console.log (records)
 records.push({i:initials, s:score})
 records.forEach(element => {
@@ -167,6 +181,7 @@ li.textContent = element.i + " " + element.s
 ul.appendChild(li)
 
 }) 
+validateForm()
 document.getElementById("scoreboard").style.display="block"
 document.querySelector("#done").style.display="none"
 

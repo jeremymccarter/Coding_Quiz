@@ -11,6 +11,7 @@
     box-sizing:border-box ;
     margin: 0;
     padding: 0;
+    
    
 
 
@@ -35,12 +36,16 @@ text-align: center;
 }
 
 #timer{
+    font-weight:500;
 text-align: end;
+font-size: 25px;
+margin-right: 1em;
 
 }
 
 #start{
-font-style: italic;
+font-style:normal;
+font-size: 20px;
 
 
 }
@@ -78,5 +83,20 @@ margin: 10px;
 font-size: 2em;
 font-weight: bold;
 margin-top: 20px;
+
+}
+
+.btn_deco{
+background-color: bisque;
+border: none;
+padding: 15px 32px;
+font: size 32px;
+
+
+
+}
+
+.btn_deco:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
